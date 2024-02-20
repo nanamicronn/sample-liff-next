@@ -18,6 +18,7 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
       <main className={styles.main}>
         <h1>create-liff-app</h1>
         {liff && <p>LIFF init succeeded.</p>}
+        {liff && <p>{liff.getIDToken()}</p>}
         {liffError && (
           <>
             <p>LIFF init failed.</p>
