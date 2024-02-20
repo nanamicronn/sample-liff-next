@@ -31,6 +31,7 @@ const Home = () => {
             });
         if(liffObject){
             void fetchHoge()
+            liffObject.openWindow({url: 'https://lin.ee/XQDBZgY'})
         }
     }, [liffObject, router]);
 
