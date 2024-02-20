@@ -8,9 +8,16 @@ import {useRouter} from "next/router";
 const Home = () => {
     const [liffObject, setLiffObject] = useState<Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
+    const [hoge, setHoge] = useState<string>('');
     const router = useRouter()
     // Execute liff.init() when the app is initialized
     useEffect(() => {
+        const fetchHoge = async () => {
+            const res= await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+            const data = await res.json()
+            setHoge(JSON.stringify(data))
+
+        }
         liff
             .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! })
             .then(() => {
@@ -23,7 +30,7 @@ const Home = () => {
                 setLiffError(error.toString());
             });
         if(liffObject){
-            router.push('https://lin.ee/XQDBZgY')
+            void fetchHoge()
         }
     }, [liffObject, router]);
 
@@ -39,6 +46,7 @@ const Home = () => {
         <h1>create-liff-app</h1>
         {liffObject && <p>LIFF init succeeded.</p>}
         {liffObject && <p>{liffObject.getIDToken()}</p>}
+        {hoge}
         {liffError && (
           <>
             <p>LIFF init failed.</p>
