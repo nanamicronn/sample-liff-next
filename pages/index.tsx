@@ -3,11 +3,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 
 const Home = () => {
     const [liffObject, setLiffObject] = useState<Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
-
+    const router = useRouter()
     // Execute liff.init() when the app is initialized
     useEffect(() => {
         liff
@@ -21,7 +22,10 @@ const Home = () => {
                 console.log("LIFF init failed.");
                 setLiffError(error.toString());
             });
-    }, []);
+        if(liffObject){
+            router.push('https://lin.ee/XQDBZgY')
+        }
+    }, [liffObject, router]);
 
   return (
     <div>
