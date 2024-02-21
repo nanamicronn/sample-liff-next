@@ -48,6 +48,7 @@ const Home = () => {
 
       <main className={styles.main}>
         <h1>create-liff-app</h1>
+        {/* https://liff.line.me からアクセスするとLINEの情報をいい感じにliffObjectに突っ込んでくれるのでトークンなどの情報が見れる */}
         {liffObject && <p>LIFF init succeeded.</p>}
         {liffObject && <p>{liffObject.getIDToken()}</p>}
         {/* 画面が遷移する前に↓のデータが見れればリクエスト成功後に遷移できてるので嬉しい  */}
