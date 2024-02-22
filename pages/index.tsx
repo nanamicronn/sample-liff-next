@@ -34,7 +34,7 @@ const Home = () => {
         if(liffObject){
             // 適当なAPIを叩いているが、ここではAPIのリクエストを待って画面を遷移してるかを確認したかった
             void fetchAPI()
-            liffObject.openWindow({url: 'https://lin.ee/XQDBZgY'})
+            // liffObject.openWindow({url: 'https://lin.ee/XQDBZgY'})
         }
     }, [liffObject, router]);
 
